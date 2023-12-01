@@ -1,9 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Moving Inputs")]
+    [SerializeField] KeyCode MoveRight = KeyCode.None;
+    [SerializeField] KeyCode MoveLeft = KeyCode.None;
+    [SerializeField] KeyCode MoveJump = KeyCode.None;
+    [SerializeField] KeyCode Attack = KeyCode.None;
+
+
+    [Header("Moving Actions")]
+    public bool isGrounded;
+    public bool isAttacking = false;
+
+
+    [Header("Moving Controller")]
     public float acceleration;
     public float deceleration;
     public float topSpeed;
@@ -15,16 +30,18 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform groundCheck;
     public float groundcheckrad;
-    public LayerMask groundLayer;
-    public bool isGrounded;
+    public LayerMask[] groundLayer;
+
 
     public float attackRange = 1f;
     public LayerMask enemyLayer;
-    private bool isAttacking = false;
+
 
     [SerializeField] Animator animator;
     private SpriteRenderer SR;
     private GameObject CameraObject;
+
+    private Dictionary<bool, Action> FlipFlop = new Dictionary<bool, Action>();
 
     void Start()
     {
@@ -35,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !isAttacking)
+
+        if (Input.GetKeyDown(Attack) && !isAttacking && isGrounded)
         {
             print("Attack!");
             animator.SetTrigger("Attack");
@@ -57,11 +75,19 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundcheckrad, groundLayer);
+        foreach (int layer in groundLayer)
+        {
+
+            isGrounded = Physics2D.Raycast(gameObject.transform.position, Vector2.down,10f, layer);
+           // isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundcheckrad, layer);
+            // Do something with the 'isGrounded' result
+            if(isGrounded) { break; }
+        }
+
         if (isGrounded)
         {
             animator.SetBool("IsJumping", false);
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(MoveJump))
             {
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }

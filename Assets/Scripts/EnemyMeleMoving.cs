@@ -9,7 +9,7 @@ public class EnemyMoving : MonoBehaviour
     [SerializeField] Transform LeftRange;
     [SerializeField] Transform RightRange;
     [SerializeField] float MoveSpeed;
-    [SerializeField] Transform goblinTransform;
+    [SerializeField] SpriteRenderer goblinSprite;
 
     private Vector3 CurrentMovePoint;
     private Dictionary<bool, Action> FlipFlop = new Dictionary<bool, Action>();
@@ -24,16 +24,14 @@ public class EnemyMoving : MonoBehaviour
         FlipFlop[true] = () =>
         {
             CurrentMovePoint = LeftRange.position;
-            goblinTransform.Rotate(0f, 0f, 0f);
 
-
+           
         };
 
         FlipFlop[false] = () =>
         {
             CurrentMovePoint = RightRange.position;
-            goblinTransform.Rotate(0f, -180f, 0f);
-
+           
 
         };
     }
@@ -56,7 +54,7 @@ public class EnemyMoving : MonoBehaviour
         FlipFlop[isMovingRight].Invoke();
         isMovingRight = !isMovingRight;
 
-        }
+    }
     }
 
 }
