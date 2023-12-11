@@ -9,17 +9,18 @@ public class BessyMovement : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] Transform attackRotation;
     [SerializeField] Transform BessyRotation;
+    [SerializeField] BoxCollider2D BessyCollider;
 
     [Header("Player Movement")]
     [Header("Jump")]
     [SerializeField] private float jumpForce = 7f;
+    [SerializeField] private LayerMask walkableLayers;
 
     [Space(5)]
     [Header("Speed")]
     [SerializeField] private float moveSpeed = 7f;
 
     private enum MovementState {idle, running, jumping, falling, attack, dead, takeAHit }
-    private MovementState state = MovementState.idle;
 
 
     //Private things
@@ -37,7 +38,7 @@ public class BessyMovement : MonoBehaviour
     {
         Move();
 
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space") && IsGrounded())
         {
             Jump();
         }
@@ -61,26 +62,45 @@ public class BessyMovement : MonoBehaviour
 
     private void UpdateAnimationState()
     {
+        MovementState state;
 
         if (dirX > 0f)
         {
-            animator.SetBool("Running", true);
-         
+            state = MovementState.running;
             BessyRotation.rotation = Quaternion.Euler(0, 0, 0);
             attackRotation.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (dirX < 0f)
         {
-            animator.SetBool("Running", true);
+            state = MovementState.running;
             BessyRotation.rotation = Quaternion.Euler(0, 180f, 0);
             attackRotation.rotation = Quaternion.Euler(0, 180f, 0);
 
         }
         else
         {
-            animator.SetBool("Running", false);
+            state = MovementState.idle;
 
         }
 
+        if(rb.velocity.y > .1f) 
+        {
+            state= MovementState.jumping;
+        
+        
+        }
+        else if(rb.velocity.y< -.1f)
+        {
+            state= MovementState.falling;
+        
+        }
+
+        animator.SetInteger("state", (int)state);
+    }
+
+
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(BessyCollider.bounds.center, BessyCollider.bounds.size, 0f, Vector2.down, .1f, walkableLayers);
     }
 }
