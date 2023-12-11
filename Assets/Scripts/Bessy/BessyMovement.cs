@@ -18,7 +18,8 @@ public class BessyMovement : MonoBehaviour
     [Header("Speed")]
     [SerializeField] private float moveSpeed = 7f;
 
-
+    private enum MovementState {idle, running, jumping, falling, attack, dead, takeAHit }
+    private MovementState state = MovementState.idle;
 
 
     //Private things
