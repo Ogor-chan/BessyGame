@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e213287362fd81447b24106febb94bdf
+guid: 375564758a655834081e3f74dcc062bd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 350
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wall1_0
+      name: BessyRun_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
+        x: 11
+        y: 1217
+        width: 690
+        height: 264
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 671a502463aceb34db8e7807b8e2726c
-      internalID: -1163427686
+      spriteID: 12ddbcd68634da0489ae643ffde760b2
+      internalID: -424427622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall1_1
+      name: BessyRun_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 773
+        y: 1183
+        width: 702
+        height: 276
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1c9ce8317f01b84ea7237d26384b711
-      internalID: 998226787
+      spriteID: ce92a830d1c629346bd2385caa941a52
+      internalID: -49796683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall1_2
+      name: BessyRun_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 18
+        y: 907
+        width: 726
+        height: 270
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f2182087c2135645b056d86bf720004
-      internalID: 1435465009
+      spriteID: 8053d3cc06845634495f734d446a5b6e
+      internalID: 1102432392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall1_3
+      name: BessyRun_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 798
+        y: 873
+        width: 738
+        height: 276
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c94e760fee1c0ba44835f04e3ccdf4f9
-      internalID: 1998460357
+      spriteID: 7b5449e6e7c43264a8fbb97a28e7da78
+      internalID: -480184067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BessyRun_5
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 579
+        width: 726
+        height: 276
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c247c318395494c8b9426d63298795
+      internalID: -579323413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BessyRun_6
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 589
+        width: 726
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77bcdbfce0ac5244f9c3877628f628b3
+      internalID: 729352388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BessyRun_7
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 249
+        width: 708
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1491df15520fb4446bd8a00046358322
+      internalID: 1954636546
       vertices: []
       indices: 
       edges: []
@@ -204,10 +267,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wall1_0: -1163427686
-      wall1_1: 998226787
-      wall1_2: 1435465009
-      wall1_3: 1998460357
+      BessyRun_0: -424427622
+      BessyRun_1: -49796683
+      BessyRun_2: 1102432392
+      BessyRun_3: -480184067
+      BessyRun_4: -360972183
+      BessyRun_5: -579323413
+      BessyRun_6: 729352388
+      BessyRun_7: 1954636546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

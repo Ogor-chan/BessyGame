@@ -10,13 +10,13 @@ public class CrystalLizard : MonoBehaviour
     public LayerMask playerLayer;
 
     private bool isPlayerCheckd;
-    [SerializeField] Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     private Dictionary<bool, Action> Status = new Dictionary<bool, Action>();
 
     private void Start()
     {
-
+        rb= GetComponent<Rigidbody2D>();
     }
 
     void Update()
