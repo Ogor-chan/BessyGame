@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class EnemyMeleAttack : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
-            Debug.Log("Player entered trigger zone!");
-  
-    }
+ // [SerializeField] private float EnemyAttackReaction;
+ // private void OnTriggerEnter2D(Collider2D collider)
+ // {
+ //         if(collider.gameObject.CompareTag("Bessy"))
+ //     {
+ //         Debug.Log("Gracz wykryty przez Enemy");
+ //     }
+ //
+ // }
 }

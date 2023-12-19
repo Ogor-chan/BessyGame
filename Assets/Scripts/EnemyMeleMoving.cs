@@ -15,9 +15,14 @@ public class EnemyMoving : MonoBehaviour
     private Dictionary<bool, Action> FlipFlop = new Dictionary<bool, Action>();
     private bool isMovingRight = true; // Initialize to the default state
 
+    [Header("Attack")]
+    [SerializeField] bool Attack;
+    [SerializeField] Animator animator;
+    [SerializeField] private float EnemyAttackReaction;
 
     private void Start()
     {
+        Attack= false;
         
         CurrentMovePoint = LeftRange.position;
 
@@ -38,7 +43,10 @@ public class EnemyMoving : MonoBehaviour
 
     private void Update()
     {
+        
         Moving();
+        
+        
 
     }
 
@@ -56,5 +64,29 @@ public class EnemyMoving : MonoBehaviour
 
     }
     }
+
+    
+  //  private void OnTriggerEnter2D(Collider2D collider)
+  //  {
+  //      
+  //      if (collider.gameObject.CompareTag("Bessy"))
+  //      {
+  //          Attack = true;
+  //          Debug.Log("Gracz wykryty przez Enemy");
+  //          animator.SetBool("Attack", true);
+  //      }
+  //
+  //  }
+  //
+  //  private void OnTriggerExit2D(Collider2D collision)
+  //  {
+  //      
+  //      if (collision.gameObject.CompareTag("Bessy"))
+  //      {
+  //          Attack = false;
+  //          Debug.Log("Gracz wyszed³ z pola Enemy");
+  //          animator.SetBool("Attack", false);
+  //      }
+  //  }
 
 }

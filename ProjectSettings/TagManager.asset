@@ -7,6 +7,10 @@ TagManager:
   - CameraPoint
   - Enemy
   - Platform
+  - Coin
+  - DamageCrystal
+  - EnemyMeleeRange
+  - Bessy
   layers:
   - Default
   - TransparentFX

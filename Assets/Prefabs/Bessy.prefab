@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2403496917021053721}
   m_Layer: 3
   m_Name: AttackRange
-  m_TagString: Untagged
+  m_TagString: Bessy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,12 +86,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2230709941484469925}
+  - component: {fileID: 6919242622110992484}
   - component: {fileID: 2418282815350617386}
   - component: {fileID: 6203023776971180311}
   - component: {fileID: 3712617740829283938}
+  - component: {fileID: 4933608762456145471}
   m_Layer: 3
   m_Name: Skin
-  m_TagString: Untagged
+  m_TagString: Bessy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,6 +114,22 @@ Transform:
   m_Father: {fileID: 6015386575735103860}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6919242622110992484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637496209652774931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6b8a74186d3eb4b9bff7088dce4648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1000
+  EnemyMeleeAttackRange: []
+  EnemyRangeAttackItem:
+  - DamageCrystal
 --- !u!212 &2418282815350617386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -236,6 +254,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4933608762456145471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637496209652774931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b983e95d0adb03e4894a424f67a52f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: []
 --- !u!1 &2332214235082963259
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +280,7 @@ GameObject:
   - component: {fileID: 4911092035181462672}
   m_Layer: 3
   m_Name: PlayerAnimation
-  m_TagString: Untagged
+  m_TagString: Bessy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,7 +385,7 @@ GameObject:
   - component: {fileID: 3489751168230026845}
   m_Layer: 3
   m_Name: DamageRange
-  m_TagString: Untagged
+  m_TagString: Bessy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -431,7 +462,7 @@ GameObject:
   - component: {fileID: 6875995240634097798}
   m_Layer: 3
   m_Name: PlayerMovement
-  m_TagString: Untagged
+  m_TagString: Bessy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,7 +515,7 @@ GameObject:
   - component: {fileID: 6015386575735103860}
   m_Layer: 3
   m_Name: Bessy
-  m_TagString: Player
+  m_TagString: Bessy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -505,6 +536,38 @@ Transform:
   - {fileID: 851157886324798845}
   - {fileID: 8840816538230335001}
   - {fileID: 2230709941484469925}
+  - {fileID: 5036225588726810872}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7913542308353681279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5036225588726810872}
+  m_Layer: 3
+  m_Name: Scripts
+  m_TagString: Bessy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5036225588726810872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913542308353681279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6015386575735103860}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
