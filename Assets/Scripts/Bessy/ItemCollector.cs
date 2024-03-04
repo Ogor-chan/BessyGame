@@ -16,7 +16,7 @@ public class ItemCollector : MonoBehaviour
             if(collision.gameObject.CompareTag(tag))
              {
                 Debug.Log("Wykryto collectable item: " + tag);
-            Destroy(collision.gameObject);
+                Destroy(collision.gameObject);
                 points++;
               }
 

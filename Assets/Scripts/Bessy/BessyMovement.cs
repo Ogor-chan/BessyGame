@@ -5,13 +5,12 @@ using UnityEngine;
 public class BessyMovement : MonoBehaviour
 {
     [Header("Player Components")]
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] Animator animator;
-    [SerializeField] Transform attackRotation;
-    [SerializeField] Transform BessyRotation;
-    [SerializeField] BoxCollider2D BessyCollider;
+    [SerializeField] GameObject BessySkin;
+     Rigidbody2D bessyRigitbody;
+    //Animator animator;
+     Transform BessyRotation;
+     CapsuleCollider2D BessyCollider;
 
-    [Header("Player Movement")]
     [Header("Jump")]
     [SerializeField] private float jumpForce = 7f;
     [SerializeField] private LayerMask walkableLayers;
@@ -27,13 +26,15 @@ public class BessyMovement : MonoBehaviour
 
     private float dirX;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-       
+        bessyRigitbody = BessySkin.GetComponent<Rigidbody2D>();
+        BessyRotation = BessySkin.GetComponent<Transform>();
+        BessyCollider = BessySkin.GetComponent<CapsuleCollider2D>();
+        
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         Move();
@@ -52,12 +53,12 @@ public class BessyMovement : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal");
 
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        bessyRigitbody.velocity = new Vector2(dirX * moveSpeed, bessyRigitbody.velocity.y);
     }
 
     private void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        bessyRigitbody.velocity = new Vector2(bessyRigitbody.velocity.x, jumpForce);
     }
 
     private void UpdateAnimationState()
@@ -68,13 +69,13 @@ public class BessyMovement : MonoBehaviour
         {
             state = MovementState.running;
             BessyRotation.rotation = Quaternion.Euler(0, 0, 0);
-            attackRotation.rotation = Quaternion.Euler(0, 0, 0);
+           // attackRotation.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (dirX < 0f)
         {
             state = MovementState.running;
             BessyRotation.rotation = Quaternion.Euler(0, 180f, 0);
-            attackRotation.rotation = Quaternion.Euler(0, 180f, 0);
+           // attackRotation.rotation = Quaternion.Euler(0, 180f, 0);
 
         }
         else
@@ -83,19 +84,19 @@ public class BessyMovement : MonoBehaviour
 
         }
 
-        if(rb.velocity.y > .1f) 
+        if(bessyRigitbody.velocity.y > .1f) 
         {
             state= MovementState.jumping;
         
         
         }
-        else if(rb.velocity.y< -.1f)
+        else if(bessyRigitbody.velocity.y< -.1f)
         {
             state= MovementState.falling;
         
         }
 
-        animator.SetInteger("state", (int)state);
+        //animator.SetInteger("state", (int)state);
     }
 
 
