@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleCheckpointController : GameSaveStateByLastCheckpoint
+public class SingleCheckpointController : MonoBehaviour
 {
     [Header("Single Checkpoint Controller")]
 
     public Vector3 checkpointPosition;
     public int checkpointNumber;
+    public CheckpointController checkpointController;
 
     private void Awake()
     {

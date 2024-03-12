@@ -11,6 +11,7 @@ public class DamagableObjectValues : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player taking damage from: " + gameObject.name);
+            Destroy(gameObject);
         }
     }
 

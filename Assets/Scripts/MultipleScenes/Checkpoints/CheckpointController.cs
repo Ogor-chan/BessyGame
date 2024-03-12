@@ -4,5 +4,15 @@ using UnityEngine;
 
 public class CheckpointController : MonoBehaviour
 {
-    [SerializeField] GameObject checkPoints;
+    public GameSaveStateByLastCheckpoint lastCheckpoint;
+    public GameObject checkPoints;
+    
+    
+    //public State currentState;
+
+    private void Awake()
+    {
+        
+    }
+
 }

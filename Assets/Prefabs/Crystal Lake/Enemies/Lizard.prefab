@@ -1,5 +1,87 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2177944327055928622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1791488279133513696}
+  - component: {fileID: 8289640475311795397}
+  - component: {fileID: 4535302955065854964}
+  m_Layer: 6
+  m_Name: CircleTriggerRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1791488279133513696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177944327055928622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7481417540318153785}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &8289640475311795397
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177944327055928622}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.5
+--- !u!114 &4535302955065854964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177944327055928622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb41d54082f56804381656b4e04fb054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectPlayerScript: {fileID: 4036854594069393840}
+  _damagableObjectSpawn: {fileID: 7301349883907371736}
 --- !u!1 &6035563535465110771
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +115,7 @@ Transform:
   m_Children:
   - {fileID: 6595918131910636024}
   - {fileID: 2048394703514658115}
+  - {fileID: 1791488279133513696}
   m_Father: {fileID: 8343039498198589298}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,7 +213,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1032
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -322,7 +405,7 @@ Transform:
   - {fileID: 7481417540318153785}
   - {fileID: 8668331938410840749}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7301349883907371736
 MonoBehaviour:
@@ -336,15 +419,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5799efe1df87c4bb7af2c70faf68e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
-  isActive: 0
-  isPlayerDirection: 0
+  attackState: 1
+  enemyDiriection: 1
+  attackFromBegin: 0
+  isEnemyAimToPlayer: 1
+  playerSkin: {fileID: 0}
   prefabToSpawn: {fileID: 5522997494108481308, guid: e61981f0f93cbcf4eb12429ca11fa4da, type: 3}
   spawnPoint: {fileID: 6595918131910636024}
   objectContainer: {fileID: 8668331938410840749}
   spawnDuration: 1
   objectLifetime: 4
-  upwardForce: 10
+  upwardForceMaxValue: 10
+  rangeForceMaxValue: 10
 --- !u!114 &4036854594069393840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,8 +444,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  bessyLayer:
+  attacking: 0
+  detectingByCircleTrigger: 1
+  circleTriggerRange: {fileID: 2177944327055928622}
+  BessyLayer:
     serializedVersion: 2
     m_Bits: 8
-  enemy: {fileID: 6035563535465110771}
-  range: 3
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  enemySkin: {fileID: 6035563535465110771}
+  range: 3.5
+  StartAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7301349883907371736}
+        m_TargetAssemblyTypeName: DamagableObjectSpawn, Assembly-CSharp
+        m_MethodName: InvokeAttack
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  StopAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7301349883907371736}
+        m_TargetAssemblyTypeName: DamagableObjectSpawn, Assembly-CSharp
+        m_MethodName: InvokeAttack
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(fileName = "Data", menuName = "Data/LastCheckpoint")]
+[CreateAssetMenu(fileName = "Data", menuName = "Data/LastCheckpoint")]
 
-public class GameSaveStateByLastCheckpoint : MonoBehaviour
+public class GameSaveStateByLastCheckpoint : ScriptableObject
 {
     public enum State {EmptyLevel, Intro, CrystalLake }
     public State lastSavedState;

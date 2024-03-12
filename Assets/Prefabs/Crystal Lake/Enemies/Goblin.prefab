@@ -45,7 +45,7 @@ GameObject:
   m_Layer: 0
   m_Name: Damage Crystal Spawn
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -107,9 +107,9 @@ GameObject:
   - component: {fileID: 942073332181048266}
   - component: {fileID: 6657626326899585060}
   - component: {fileID: 8583968902933720838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Skin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,7 +242,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06467056, y: -0.18599021}
+  m_Offset: {x: -0.110816956, y: -0.1550219}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -253,7 +253,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8669548, y: 1.088537}
+  m_Size: {x: 1.2179298, y: 1.1504736}
   m_EdgeRadius: 0
 --- !u!1 &5914918150002610128
 GameObject:
@@ -401,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7884416690892975297
 Transform:
   m_ObjectHideFlags: 0
@@ -418,7 +418,7 @@ Transform:
   - {fileID: 9017185432170778096}
   - {fileID: 9063408795344163999}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1752559262868469710
 MonoBehaviour:
@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWalking: 1
+  _damagableObjectSpawn: {fileID: 8082343184718573042}
   points:
   - {fileID: 1135377624043083179}
   - {fileID: 14045025729959616}
@@ -450,8 +451,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5799efe1df87c4bb7af2c70faf68e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  attackState: 0
+  enemyDiriection: 1
+  attackFromBegin: 1
+  isEnemyAimToPlayer: 0
+  playerSkin: {fileID: 0}
   prefabToSpawn: {fileID: 5522997494108481308, guid: e61981f0f93cbcf4eb12429ca11fa4da, type: 3}
   spawnPoint: {fileID: 3946349686541937888}
-  spawnDuration: 1
   objectContainer: {fileID: 9063408795344163999}
+  spawnDuration: 1
+  objectLifetime: 4
+  upwardForceMaxValue: 10
+  rangeForceMaxValue: 10
