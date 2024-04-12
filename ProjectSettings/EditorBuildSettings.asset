@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 7330bbaa84d29b245a75bf9a57b1f4e2
+  - enabled: 1
+    path: Assets/Scenes/CrystalLake/EntryIlustration.unity
+    guid: c6898a6ef7a9dce4f8a8e161a781752d
+  - enabled: 1
     path: Assets/Scenes/CrystalLake/CrystalLake.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
